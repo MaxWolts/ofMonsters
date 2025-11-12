@@ -1,0 +1,270 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const upcomingTours = [
+  {
+    date: "2025-05-15",
+    city: "Nueva York",
+    country: "Estados Unidos",
+    venue: "Madison Square Garden",
+    status: "Tickets Disponibles",
+    image: "images/giras/ticket.webp",
+  },
+  {
+    date: "2025-05-18",
+    city: "Boston",
+    country: "Estados Unidos",
+    venue: "TD Garden",
+    status: "Próximamente",
+    image: "images/giras/ticket.webp",
+  },
+  {
+    date: "2025-06-02",
+    city: "Londres",
+    country: "Reino Unido",
+    venue: "O2 Arena",
+    status: "Tickets Disponibles",
+    image: "images/giras/ticket.webp",
+  },
+  {
+    date: "2025-06-05",
+    city: "Berlín",
+    country: "Alemania",
+    venue: "Mercedes-Benz Arena",
+    status: "Agotado",
+    image: "images/giras/ticket.webp",
+  },
+];
+
+const pastTours = [
+  { year: 2023, cities: ["Los Ángeles", "Chicago", "Toronto", "Vancouver"] },
+  { year: 2022, cities: ["París", "Ámsterdam", "Estocolmo", "Copenhague"] },
+  { year: 2021, cities: ["Reykjavik", "Oslo", "Helsinki", "Tallin"] },
+  { year: 2019, cities: ["Sídney", "Melbourne", "Brisbane", "Perth"] },
+];
+---
+
+<Layout>
+  <Header />
+
+  <!-- Hero Banner -->
+  <section
+    class="relative bg-gradient-to-r from-stone-900 via-stone-800 to-stone-900"
+  >
+    <div class="absolute inset-0 opacity-20">
+      <div
+        class="w-full h-full bg-[url('https://placehold.co/1200x400/2F4F4F/36454F/png?text=Map+Texture')] bg-cover bg-center"
+      >
+      </div>
+    </div>
+    <div class="relative z-10 py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="mb-8">
+          <img
+            src="images/giras/inconcert.webp"
+            alt="Gráfico ilustrativo de Of Monsters and Men en gira."
+            class="w-full h-48 md:h-120 object-cover rounded-lg shadow-2xl"
+          />
+        </div>
+        <h1
+          class="text-4xl md:text-6xl font-bold text-stone-100 mb-6 drop-shadow-lg"
+        >
+          El Viaje Continúa: Próximas Giras y Fechas
+        </h1>
+        <p class="text-xl md:text-2xl text-stone-300 drop-shadow-md">
+          Únete a nosotros en el camino
+        </p>
+        <div class="mt-8 flex justify-center">
+          <div class="w-24 h-1 bg-stone-400 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Tours Section -->
+  <section class="py-16 bg-stone-900 text-stone-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Próximos Conciertos</h2>
+        <p class="text-lg text-stone-300">
+          No te pierdas estas fechas imperdibles
+        </p>
+      </div>
+
+      <!-- Desktop Table -->
+      <div class="hidden lg:block overflow-x-auto">
+        <div
+          class="bg-stone-800 rounded-xl shadow-2xl border border-stone-700 overflow-hidden"
+        >
+          <table class="w-full">
+            <thead class="bg-gradient-to-r from-stone-700 to-stone-600">
+              <tr>
+                <th
+                  class="px-6 py-5 text-left text-stone-100 font-bold uppercase tracking-wider border-b border-stone-600"
+                  >Fecha</th
+                >
+                <th
+                  class="px-6 py-5 text-left text-stone-100 font-bold uppercase tracking-wider border-b border-stone-600"
+                  >Ciudad</th
+                >
+                <th
+                  class="px-6 py-5 text-left text-stone-100 font-bold uppercase tracking-wider border-b border-stone-600"
+                  >País</th
+                >
+                <th
+                  class="px-6 py-5 text-left text-stone-100 font-bold uppercase tracking-wider border-b border-stone-600"
+                  >Recinto</th
+                >
+                <th
+                  class="px-6 py-5 text-left text-stone-100 font-bold uppercase tracking-wider border-b border-stone-600"
+                  >Estado</th
+                >
+                <th
+                  class="px-6 py-5 text-center text-stone-100 font-bold uppercase tracking-wider border-b border-stone-600"
+                  >Tickets</th
+                >
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-600">
+              {
+                upcomingTours.map((tour, index) => (
+                  <tr
+                    class={`hover:bg-stone-700 transition-all duration-200 ${index % 2 === 0 ? "bg-stone-800" : "bg-stone-750"}`}
+                  >
+                    <td class="px-6 py-4 text-stone-100 font-medium">
+                      {new Date(tour.date).toLocaleDateString("es-ES")}
+                    </td>
+                    <td class="px-6 py-4 text-stone-100">{tour.city}</td>
+                    <td class="px-6 py-4 text-stone-100">{tour.country}</td>
+                    <td class="px-6 py-4 text-stone-100">{tour.venue}</td>
+                    <td class="px-6 py-4">
+                      <span
+                        class={`inline-flex px-3 py-1 rounded-full text-xs font-medium ${
+                          tour.status === "Tickets Disponibles"
+                            ? "bg-green-800 text-green-100"
+                            : tour.status === "Agotado"
+                              ? "bg-red-800 text-red-100"
+                              : "bg-yellow-800 text-yellow-100"
+                        }`}
+                      >
+                        {tour.status}
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                      <button class="bg-stone-600 hover:bg-stone-500 text-stone-100 px-4 py-2 rounded-lg font-medium transition-colors duration-200 shadow-md">
+                        Comprar Tickets
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Mobile Cards -->
+      <div class="lg:hidden space-y-6">
+        {
+          upcomingTours.map((tour) => (
+            <div class="bg-gradient-to-r from-stone-800 to-stone-700 border border-stone-600 rounded-xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:scale-102">
+              <div class="flex">
+                <div class="relative">
+                  <img
+                    src={tour.image}
+                    alt={`Imagen de ${tour.city}`}
+                    class="w-28 object-cover h-fit"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                </div>
+                <div class="p-5 flex-1">
+                  <div class="flex justify-between items-start mb-3">
+                    <h3 class="text-lg font-bold text-stone-100 leading-tight">
+                      {tour.city}, {tour.country}
+                    </h3>
+                    <span class="text-sm text-stone-300 bg-stone-600 px-2 py-1 rounded-full">
+                      {new Date(tour.date).toLocaleDateString("es-ES")}
+                    </span>
+                  </div>
+                  <p class="text-stone-300 mb-2 font-medium">{tour.venue}</p>
+                  <div class="mb-4">
+                    <span
+                      class={`inline-flex px-3 py-1 rounded-full text-xs font-semibold ${
+                        tour.status === "Tickets Disponibles"
+                          ? "bg-green-700 text-green-100"
+                          : tour.status === "Agotado"
+                            ? "bg-red-700 text-red-100"
+                            : "bg-yellow-700 text-yellow-100"
+                      }`}
+                    >
+                      {tour.status}
+                    </span>
+                  </div>
+                  <button class="bg-stone-600 hover:bg-stone-500 text-stone-100 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 shadow-md w-full">
+                    Comprar Tickets
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Past Tours Section -->
+  <section class="py-20 bg-gradient-to-b from-stone-50 to-stone-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-5xl font-bold text-stone-800 mb-6">
+          El Archivo del Setlist
+        </h2>
+        <p class="text-lg text-stone-600 max-w-2xl mx-auto">
+          Nuestra historia de giras a través de los años, marcando el camino recorrido
+        </p>
+        <div class="mt-6 flex justify-center">
+          <div class="w-32 h-1 bg-gradient-to-r from-stone-400 to-stone-600 rounded-full"></div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <!-- Timeline line -->
+        <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-stone-400 via-stone-500 to-stone-600"></div>
+
+        <div class="space-y-12">
+          {
+            pastTours.map((tour, index) => (
+              <div class="relative flex items-start">
+                <!-- Timeline dot -->
+                <div class="flex-shrink-0 w-16 h-16 bg-stone-700 rounded-full flex items-center justify-center shadow-lg border-4 border-stone-100 z-10">
+                  <span class="text-stone-100 font-bold text-sm">{tour.year}</span>
+                </div>
+
+                <!-- Content card -->
+                <div class="ml-8 flex-1">
+                  <div class="bg-white rounded-xl shadow-lg border border-stone-200 p-6 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-4">
+                      <div class="w-8 h-8 bg-stone-600 rounded-full flex items-center justify-center mr-3">
+                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                      </div>
+                      <h3 class="text-xl font-bold text-stone-800">{tour.year}</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                      {tour.cities.map((city) => (
+                        <span class="bg-gradient-to-r from-stone-200 to-stone-300 text-stone-700 px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:shadow-md transition-shadow duration-200">
+                          {city}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
