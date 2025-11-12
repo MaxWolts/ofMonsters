@@ -1,0 +1,130 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const albums = [
+  {
+    title: "My Head Is an Animal",
+    year: 2011,
+    cover: "images/about/gallery-1.webp",
+    link: "/album/my-head-is-an-animal",
+  },
+  {
+    title: "Beneath the Skin",
+    year: 2015,
+    cover: "images/about/gallery-2.webp",
+    link: "/album/beneath-the-skin",
+  },
+  {
+    title: "Fever Dream",
+    year: 2019,
+    cover: "images/about/gallery-3.webp",
+    link: "/album/fever-dream",
+  },
+  {
+    title: "All is Love and Pain in the Mouse Parade",
+    year: 2025,
+    cover: "images/about/gallery-4.webp",
+    link: "/album/live-at-bowery",
+  },
+];
+
+const singles = [
+  { title: "Little Talks", year: 2011 },
+  { title: "Mountain Sound", year: 2011 },
+  { title: "Crystals", year: 2015 },
+  { title: "Wars", year: 2019 },
+];
+---
+
+<Layout>
+  <Header />
+
+  <!-- Hero Section with Image -->
+  <section class="relative bg-stone-900 text-stone-100 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <img
+          src="/images/discography/discography-1.webp"
+          alt="Foto de los miembros de Of Monsters and Men en un concierto en Islandia, con iluminación cálida y fondo de niebla."
+          class="w-full h-auto object-cover rounded-lg shadow-lg mb-8 max-w-md mx-auto"
+        />
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          El Catálogo de Canciones: Discografía Completa
+        </h1>
+        <p class="text-xl text-stone-300 max-w-2xl mx-auto">
+          Explora la colección completa de música de Of Monsters and Men, desde
+          sus primeros éxitos hasta sus últimas creaciones.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Albums Grid -->
+  <section class="py-16 bg-stone-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-stone-800 mb-4">
+          Álbumes
+        </h2>
+        <p class="text-lg text-stone-600">
+          Descubre nuestros lanzamientos principales
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {
+          albums.map((album) => (
+            <div class="card hover:shadow-xl transition-shadow duration-300 transform hover:scale-105">
+              <img
+                src={album.cover}
+                alt={`Portada del álbum ${album.title}`}
+                class="w-full h-64 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-semibold text-stone-800 mb-2 min-h-14 m-0">
+                  {album.title}
+                </h3>
+                <p class="text-stone-600 mb-4">{album.year}</p>
+                <a
+                  href={album.link}
+                  class="btn-primary inline-block w-full text-center"
+                >
+                  Ver Tracklist
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Singles Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-stone-800 mb-4">
+          Singles Destacados
+        </h2>
+        <p class="text-lg text-stone-600">
+          Canciones que marcaron nuestra trayectoria
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        {
+          singles.map((single) => (
+            <div class="flex justify-between items-center py-4 border-b border-stone-200">
+              <h3 class="text-lg font-medium text-stone-800">{single.title}</h3>
+              <span class="text-stone-600">{single.year}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
