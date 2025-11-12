@@ -5,27 +5,29 @@ import Carousel from "../components/Carousel.astro";
 import NewsCard from "../components/NewsCard.astro";
 import Footer from "../components/Footer.astro";
 
-const newsItems = [
+const popularVideos = [
   {
-    image: "/images/news-1.svg",
-    title: "Nueva Gira Anunciada",
+    videoId: "ghb6eDopW8I",
+    title: "Little Talks",
     description:
-      "Of Monsters and Men anuncia su gira europea para 2024. Fechas disponibles próximamente.",
-    date: "15 Nov 2023",
+      "Nuestro sencillo más exitoso con más de 500 millones de reproducciones",
   },
   {
-    image: "/images/news-2.svg",
-    title: "Videoclip Recién Estrenado",
+    videoId: "0gEVaniPOmU",
+    title: "Mountain Sound",
     description:
-      "Descubre el nuevo videoclip de 'Wars' filmado en los paisajes islandeses.",
-    date: "8 Nov 2023",
+      "Un viaje a través de los paisajes islandeses que inspiraron la canción",
   },
   {
-    image: "/images/news-3.svg",
-    title: "Nuevo Álbum Próximamente",
+    videoId: "mCHUw7ACS8o",
+    title: "Dirty Paws",
     description:
-      "Trabajando en nuevas canciones inspiradas en la naturaleza y el folclore nórdico.",
-    date: "1 Nov 2023",
+      "La energía contagiosa de nuestro debut que conquistó el mundo",
+  },
+  {
+    videoId: "XUClIslXKZo",
+    title: "Empire",
+    description: "La evolución sonora de Beneath the Skin en imágenes épicas",
   },
 ];
 ---
@@ -41,23 +43,37 @@ const newsItems = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h2 class="text-4xl md:text-5xl font-bold text-stone-800 mb-4">
-          El Bosque de Noticias
+          El Bosque de Canciones
         </h2>
         <p class="text-xl text-stone-600 max-w-2xl mx-auto">
-          Mantente al día con las últimas novedades, lanzamientos y eventos de
-          Of Monsters and Men
+          Mantente al día con nuestros ultimos lanzamientos
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         {
-          newsItems.map((item) => (
-            <NewsCard
-              image={item.image}
-              title={item.title}
-              description={item.description}
-              date={item.date}
-            />
+          popularVideos.map((video) => (
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <div class="relative aspect-video">
+                <iframe
+                  class="w-full h-full"
+                  src={`https://www.youtube.com/embed/${video.videoId}?rel=0&modestbranding=1`}
+                  title={`YouTube video: ${video.title}`}
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-stone-800 mb-2">
+                  {video.title}
+                </h3>
+                <p class="text-stone-600 leading-relaxed">
+                  {video.description}
+                </p>
+              </div>
+            </div>
           ))
         }
       </div>
