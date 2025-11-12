@@ -1,0 +1,318 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const bandMembers = [
+  {
+    name: "Nanna Bryndís Hilmarsdóttir",
+    role: "Voz principal, Piano",
+    image: "/images/about/member-nanna.webp",
+    description: "La voz etérea que define el sonido de la banda.",
+  },
+  {
+    name: "Ragnar Þórhallsson",
+    role: "Guitarra, Voz",
+    image: "/images/about/member-raggi.webp",
+    description: "Compositor principal y fuerza creativa detrás de las letras.",
+  },
+  {
+    name: "Brynjar Leifsson",
+    role: "Guitarra",
+    image: "/images/about/member-brynjar.webp",
+    description: "El alma musical que aporta profundidad a las composiciones.",
+  },
+  {
+    name: "Kristján Páll Kristjánsson",
+    role: "Bajo",
+    image: "/images/about/member-kristjan.webp",
+    description: "El pulso rítmico que mantiene unida la banda.",
+  },
+  {
+    name: "Árni Guðjónsson",
+    role: "Batería",
+    image: "/images/about/member-arni.webp",
+    description: "El corazón palpitante de cada canción.",
+  },
+];
+
+const galleryImages = [
+  "/images/about/gallery-1.webp",
+  "/images/about/gallery-2.webp",
+  "/images/about/gallery-3.webp",
+  "/images/about/gallery-4.webp",
+];
+---
+
+<Layout>
+  <Header />
+
+  <main class="min-h-screen bg-gradient-to-b from-stone-50 to-stone-100">
+    <!-- Hero Section -->
+    <section class="relative py-20 bg-stone-800 text-stone-100 overflow-hidden">
+      <div
+        class="absolute inset-0 bg-[url('/images/about/texture-paper.webp')] bg-center bg-cover opacity-30"
+      >
+      </div>
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1
+          class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+        >
+          Nacidos de la Niebla
+        </h1>
+        <p class="text-xl md:text-2xl lg:text-3xl font-light text-stone-300">
+          La Historia de Of Monsters and Men
+        </p>
+      </div>
+    </section>
+
+    <!-- Content Container -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <!-- Section 1: Formation and Origins -->
+      <section class="mb-16">
+        <div class="flex flex-col lg:flex-row gap-8 items-start">
+          <div class="flex-1">
+            <h2
+              class="text-3xl md:text-4xl font-bold text-stone-800 mb-6 leading-tight"
+            >
+              Formación y Orígenes
+            </h2>
+            <div class="prose prose-lg prose-stone max-w-none">
+              <p class="text-stone-700 leading-relaxed mb-4">
+                Todo comenzó en Keflavík, Islandia, una pequeña ciudad costera
+                envuelta en la niebla del Atlántico Norte. En 2010, Nanna
+                Bryndís Hilmarsdóttir y Ragnar Þórhallsson se conocieron durante
+                sus estudios en la Academia de Artes de Reikiavik.
+              </p>
+              <p class="text-stone-700 leading-relaxed mb-4">
+                Lo que empezó como una colaboración musical casual pronto se
+                convirtió en algo mágico. Nanna, con su voz etérea que recuerda
+                a las leyendas islandesas, y Raggi, con su habilidad para tejer
+                historias a través de la música, formaron el núcleo de lo que se
+                convertiría en Of Monsters and Men.
+              </p>
+              <p class="text-stone-700 leading-relaxed">
+                La banda tomó su nombre de una línea de la canción "Little
+                Talks", inspirada en el folclore islandés y la mitología nórdica
+                que tanto influye en su música.
+              </p>
+            </div>
+          </div>
+          <div class="lg:w-96">
+            <img
+              src="/images/about/origins-landscape.webp"
+              alt="Paisaje islandés de Keflavík"
+              class="w-full h-64 lg:h-80 object-cover rounded-lg shadow-lg"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <!-- Decorative separator -->
+        <div class="flex items-center justify-center my-12">
+          <div class="flex-1 h-px bg-stone-300"></div>
+          <div class="mx-4 text-stone-400">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2L13.09 8.26L19 9L13.09 9.74L12 16L10.91 9.74L5 9L10.91 8.26L12 2Z"
+              ></path>
+            </svg>
+          </div>
+          <div class="flex-1 h-px bg-stone-300"></div>
+        </div>
+      </section>
+
+      <!-- Section 2: Takeoff and First Album -->
+      <section class="mb-16">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-stone-800 mb-6 leading-tight"
+        >
+          El Despegue y "My Head Is an Animal"
+        </h2>
+        <div class="prose prose-lg prose-stone max-w-none">
+          <p class="text-stone-700 leading-relaxed mb-6">
+            El año 2011 marcó un punto de inflexión. La banda participó en el
+            festival Músíktilraunir, el equivalente islandés a los premios
+            Grammy, donde ganaron el premio a la Mejor Canción Pop con "Little
+            Talks".
+          </p>
+          <p class="text-stone-700 leading-relaxed mb-6">
+            Este éxito les abrió las puertas a un contrato discográfico
+            internacional. Su álbum debut, "My Head Is an Animal", fue lanzado
+            en 2012 y rápidamente conquistó las listas de popularidad en Europa
+            y Estados Unidos.
+          </p>
+
+          <blockquote
+            class="border-l-4 border-stone-400 pl-6 italic text-stone-600 my-8 text-lg"
+          >
+            "La música es nuestra forma de contar historias que vienen de las
+            profundidades de nuestra isla, de las leyendas que nuestros abuelos
+            nos contaban alrededor del fuego."
+            <footer class="text-stone-500 mt-2">— Ragnar Þórhallsson</footer>
+          </blockquote>
+
+          <p class="text-stone-700 leading-relaxed">
+            "Little Talks" se convirtió en un himno generacional, fusionando el
+            folclore islandés con sonidos contemporáneos, creando una
+            experiencia musical que transporta al oyente a paisajes etéreos y
+            bosques ancestrales.
+          </p>
+        </div>
+
+        <!-- Decorative separator -->
+        <div class="flex items-center justify-center my-12">
+          <div class="flex-1 h-px bg-stone-300"></div>
+          <div class="mx-4 flex space-x-2">
+            <svg
+              class="w-4 h-4 text-stone-400"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2L13.09 8.26L19 9L13.09 9.74L12 16L10.91 9.74L5 9L10.91 8.26L12 2Z"
+              ></path>
+            </svg>
+            <svg
+              class="w-4 h-4 text-stone-400"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2L13.09 8.26L19 9L13.09 9.74L12 16L10.91 9.74L5 9L10.91 8.26L12 2Z"
+              ></path>
+            </svg>
+            <svg
+              class="w-4 h-4 text-stone-400"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2L13.09 8.26L19 9L13.09 9.74L12 16L10.91 9.74L5 9L10.91 8.26L12 2Z"
+              ></path>
+            </svg>
+          </div>
+          <div class="flex-1 h-px bg-stone-300"></div>
+        </div>
+      </section>
+
+      <!-- Section 3: Evolution and Growth -->
+      <section class="mb-16">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-stone-800 mb-6 leading-tight"
+        >
+          Evolución y Crecimiento
+        </h2>
+        <div class="prose prose-lg prose-stone max-w-none mb-8">
+          <p class="text-stone-700 leading-relaxed mb-4">
+            Con "Beneath the Skin" (2015) y "Fever Dream" (2019), la banda
+            demostró una evolución notable. Las composiciones se volvieron más
+            complejas, incorporando elementos de rock alternativo y producciones
+            más elaboradas.
+          </p>
+          <p class="text-stone-700 leading-relaxed">
+            Mientras mantenían su conexión con las raíces islandesas, exploraron
+            nuevos territorios sonoros, creando un puente entre la tradición
+            folclórica y la música contemporánea.
+          </p>
+        </div>
+
+        <!-- Gallery -->
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          {
+            galleryImages.map((image, index) => (
+              <div class="aspect-square overflow-hidden rounded-lg shadow-md">
+                <img
+                  src={image}
+                  alt={`Foto de la banda ${index + 1}`}
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+            ))
+          }
+        </div>
+
+        <!-- Decorative separator -->
+        <div class="flex items-center justify-center my-12">
+          <div class="flex-1 h-px bg-stone-300"></div>
+          <div class="mx-4 text-stone-400">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+              ></path>
+            </svg>
+          </div>
+          <div class="flex-1 h-px bg-stone-300"></div>
+        </div>
+      </section>
+
+      <!-- Section 4: Band Members -->
+      <section class="mb-16">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-stone-800 mb-8 leading-tight text-center"
+        >
+          Los Miembros de la Banda
+        </h2>
+
+        <div class="space-y-8">
+          {
+            bandMembers.map((member, index) => (
+              <div
+                class={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} gap-6 items-center`}
+              >
+                <div class="md:w-1/3">
+                  <div class="aspect-square w-full max-w-xs mx-auto overflow-hidden rounded-full shadow-lg bg-stone-200">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <div class="md:w-2/3 text-center md:text-left">
+                  <h3 class="text-2xl font-bold text-stone-800 mb-2">
+                    {member.name}
+                  </h3>
+                  <p class="text-lg text-stone-600 mb-3 font-medium">
+                    {member.role}
+                  </p>
+                  <p class="text-stone-700 leading-relaxed">
+                    {member.description}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Closing Section -->
+      <section class="text-center py-12 border-t border-stone-300">
+        <p class="text-stone-600 text-lg leading-relaxed max-w-2xl mx-auto">
+          La historia de Of Monsters and Men continúa escribiéndose. Cada
+          concierto, cada nueva canción, es una página más en este libro que
+          nació de la niebla islandesa y que hoy resuena en todo el mundo.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .prose {
+    color: inherit;
+  }
+  .prose p {
+    margin-bottom: 1.5em;
+  }
+  .prose blockquote {
+    font-style: italic;
+    border-left-width: 4px;
+    border-left-color: rgb(168 162 158);
+    padding-left: 1.5rem;
+  }
+</style>
