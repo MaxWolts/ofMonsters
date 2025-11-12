@@ -1,0 +1,68 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import AlbumDetail from "../../components/AlbumDetail.astro";
+
+const albumData = {
+  title: "My Head Is an Animal",
+  year: 2012,
+  coverPlaceholderUrl: "/images/about/gallery-1.webp",
+  coverAltText:
+    "Portada del álbum My Head Is an Animal de Of Monsters and Men.",
+  reviewText:
+    "El debut homónimo de Of Monsters and Men marcó el nacimiento de una banda que fusiona el folclore islandés con el pop contemporáneo. Con su sonido épico y narrativo, este álbum transporta al oyente a paisajes imaginarios llenos de magia y emoción. Canciones como 'Little Talks' se convirtieron en himnos globales, llevando la esencia de Islandia a millones de corazones alrededor del mundo.",
+  tracklist: [
+    "Dirty Paws",
+    "King and Lionheart",
+    "Mountain Sound",
+    "Slow and Steady",
+    "From Finner",
+    "Little Talks",
+    "Six Weeks",
+    "Love Love Love",
+    "Your Bones",
+    "Sloom",
+    "Lakehouse",
+    "Yellow Light",
+  ],
+  featuredTrack: "Little Talks",
+  videoPlaceholderUrl: "https://www.youtube.com/embed/ghb6eDopW8I",
+  videoAltText: "Miniatura del videoclip Little Talks.",
+  totalLength: "53:00",
+  urlSongs: [
+    "https://music.youtube.com/watch?v=mCHUw7ACS8o&si=XiCII7aMS0s4qaHm",
+    "https://music.youtube.com/watch?v=A76a_LNIYwE&si=O62293s9Sur38TNo",
+    "https://music.youtube.com/watch?v=0gEVaniPOmU&si=085MvZ72uFkzSsLE",
+    "https://music.youtube.com/watch?v=uRyRymflxtU&si=F3N5VCT7kkzpPZUp",
+    "https://music.youtube.com/watch?v=H7Gr6HBMDu0&si=YJLXCIHNY9oIijzw",
+    "https://music.youtube.com/watch?v=ghb6eDopW8I&si=J26zY47u5-cd-jds",
+    "https://music.youtube.com/watch?v=18Gyci5tw74&si=5ndWvaXQcXnVY2MI",
+    "https://music.youtube.com/watch?v=beiPP_MGz6I&si=AkidHNOk_U7O3C8w",
+    "https://music.youtube.com/watch?v=wXUloVYbchg&si=9x1z_9iMuGiWVG_D",
+    "https://music.youtube.com/watch?v=FubvitXV_zM&si=oUVChU2FRpk5COQX",
+    "https://music.youtube.com/watch?v=tBkkplOiSjQ&si=At3H43uD3F30Oq_-",
+    "https://music.youtube.com/watch?v=aBlKPLeLU_s&si=AfwkhizFH2lmx-_a",
+  ],
+  bannerUrl: "/images/banners/banner-myhead.webp",
+};
+---
+
+<Layout>
+  <Header />
+  <AlbumDetail
+    title={albumData.title}
+    year={albumData.year}
+    coverPlaceholderUrl={albumData.coverPlaceholderUrl}
+    coverAltText={albumData.coverAltText}
+    reviewText={albumData.reviewText}
+    tracklist={albumData.tracklist}
+    featuredTrack={albumData.featuredTrack}
+    videoPlaceholderUrl={albumData.videoPlaceholderUrl}
+    videoAltText={albumData.videoAltText}
+    urlSongs={albumData.urlSongs}
+    totalLength={albumData.totalLength}
+    bannerUrl={albumData.bannerUrl}
+  />
+  <Footer />
+</Layout>

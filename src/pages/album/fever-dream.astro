@@ -1,0 +1,66 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import AlbumDetail from "../../components/AlbumDetail.astro";
+
+const albumData = {
+  title: "Fever Dream",
+  year: 2019,
+  coverPlaceholderUrl: "/images/about/gallery-3.webp",
+  coverAltText: "Portada del álbum Fever Dream de Of Monsters and Men.",
+  reviewText:
+    "Tercer disco de la banda y el que marca una evolución en su sonido, explorando una producción más electrónica y atmosférica, que se aleja de su folk-rock más característico sin perder sus melodías épicas y letras introspectivas sobre la naturaleza y las experiencias humanas. El álbum es más maduro y experimental, con temas que crean paisajes sonoros vibrantes y melancólicos.",
+  tracklist: [
+    "Alligator",
+    "Ahay",
+    "Rororo",
+    "Waiting For The Snow",
+    "Vulture, Vulture",
+    "Wild Roses",
+    "Stuck In Gravity",
+    "Sleepwalker",
+    "wars",
+    "Under A Dome",
+    "Soothsayer",
+  ],
+  featuredTrack: "Alligator",
+  videoPlaceholderUrl:
+    "https://www.youtube.com/embed/ThrK0Re1lJs?si=VNdsX4h2i5eQ7Hli",
+  videoAltText: "Miniatura del videoclip Crimson Peak.",
+  totalLength: "40:30",
+  urlSongs: [
+    "https://music.youtube.com/watch?v=ThrK0Re1lJs&si=qPOhBDmf1Nci7ha-",
+    "https://music.youtube.com/watch?v=A44KayAIfdU&si=rbWsq1AbsDKNpAD3",
+    "https://music.youtube.com/watch?v=_3WZ_RCtmBQ&si=hqZIErHqKAzCW8mq",
+    "https://music.youtube.com/watch?v=BDgQL2BZU7c&si=fPl1PSaNDd0D3oiv",
+    "https://music.youtube.com/watch?v=riKu4O0n_oM&si=bkxrAa6BD2UXdLR9",
+    "https://music.youtube.com/watch?v=C9LPQmkao8c&si=e-MIIPbzsoT0GABu",
+    "https://music.youtube.com/watch?v=70mGSFDVbTQ&si=q6bJ2jcjF_tIEnjJ",
+    "https://music.youtube.com/watch?v=ePfAUuEVGv0&si=zDvExpdZrybOxbFl",
+    "https://music.youtube.com/watch?v=10cyoQjBlNQ&si=Nmfaj4m0F40xnzWd",
+    "https://music.youtube.com/watch?v=Fj67esbucuY&si=fwMRptpnx7-6CJiH",
+    "https://music.youtube.com/watch?v=RpuMxPBnysM&si=QGmZIk6XtD9uUnfj",
+  ],
+  bannerUrl: "/images/banners/banner-fever.webp",
+};
+---
+
+<Layout>
+  <Header />
+  <AlbumDetail
+    title={albumData.title}
+    year={albumData.year}
+    coverPlaceholderUrl={albumData.coverPlaceholderUrl}
+    coverAltText={albumData.coverAltText}
+    reviewText={albumData.reviewText}
+    tracklist={albumData.tracklist}
+    featuredTrack={albumData.featuredTrack}
+    videoPlaceholderUrl={albumData.videoPlaceholderUrl}
+    videoAltText={albumData.videoAltText}
+    totalLength={albumData.totalLength}
+    urlSongs={albumData.urlSongs}
+    bannerUrl={albumData.bannerUrl}
+  />
+  <Footer />
+</Layout>

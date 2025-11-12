@@ -1,0 +1,66 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import AlbumDetail from "../../components/AlbumDetail.astro";
+
+const albumData = {
+  title: "Beneath the Skin",
+  year: 2015,
+  coverPlaceholderUrl: "/images/about/gallery-2.webp",
+  coverAltText: "Portada del álbum Beneath the Skin de Of Monsters and Men.",
+  reviewText:
+    "El disco Beneath the Skin de Of Monsters and Men se describe como un trabajo más complejo y maduro, que se adentra en temas personales e introspectivos tras dos años de gira. Es un álbum que explora la dualidad de la experiencia humana, la danza entre la alegría y la tristeza, a través de su distintivo estilo pop-folk. La instrumentación es épica, a veces melancólica y a veces aventurera, y se considera una de las exploraciones más profundas de la banda.",
+  tracklist: [
+    "Crystals",
+    "Human",
+    "Hunger",
+    "Wolves Without Teeth",
+    "Empire",
+    "Slow Life",
+    "Organs",
+    "Black Water",
+    "Thousand Eyes",
+    "I Of The Storm",
+    "We Sink",
+  ],
+  featuredTrack: "Crystals",
+  videoPlaceholderUrl:
+    "https://www.youtube.com/embed/XUClIslXKZo?si=ey1bLkX_U8QTg4xU",
+  videoAltText: "Miniatura del videoclip Empire.",
+  totalLength: "48:00",
+  urlSongs: [
+    "https://music.youtube.com/watch?v=_-PgPZ3F9P4&si=_m8bRJ4z7m4MMs_9",
+    "https://music.youtube.com/watch?v=0EnrFe3Zb6k&si=yo4qKiAIIO9lLfHa",
+    "https://music.youtube.com/watch?v=n106Qo0D948&si=M4bYURFqaAJry1HZ",
+    "https://music.youtube.com/watch?v=h6OuIpdqGhQ&si=1SeLxnY602iRC1Ok",
+    "https://music.youtube.com/watch?v=-uXL5JcD3zw&si=AUdFEa2Bp_0DczKo",
+    "https://music.youtube.com/watch?v=XeZRJbB3_00&si=RLYADEPnLccE3uk9",
+    "https://music.youtube.com/watch?v=hJZDHW6txk4&si=Wy2Zb97EboOIxry5",
+    "https://music.youtube.com/watch?v=AILsB9G8qEw&si=5BrEAXXKVjjj6-lD",
+    "https://music.youtube.com/watch?v=wylkSUS9Ofs&si=U2ODgR5MgBsbQHTD",
+    "https://music.youtube.com/watch?v=tlCkafSYNJI&si=gYU010ZIDK4j3XH_",
+    "https://music.youtube.com/watch?v=dFRywBkXgdA&si=H6-fkd0JLXemdw8-",
+  ],
+  bannerUrl: "/images/banners/banner-beneath.webp",
+};
+---
+
+<Layout>
+  <Header />
+  <AlbumDetail
+    title={albumData.title}
+    year={albumData.year}
+    coverPlaceholderUrl={albumData.coverPlaceholderUrl}
+    coverAltText={albumData.coverAltText}
+    reviewText={albumData.reviewText}
+    tracklist={albumData.tracklist}
+    featuredTrack={albumData.featuredTrack}
+    videoPlaceholderUrl={albumData.videoPlaceholderUrl}
+    videoAltText={albumData.videoAltText}
+    urlSongs={albumData.urlSongs}
+    totalLength={albumData.totalLength}
+    bannerUrl={albumData.bannerUrl}
+  />
+  <Footer />
+</Layout>

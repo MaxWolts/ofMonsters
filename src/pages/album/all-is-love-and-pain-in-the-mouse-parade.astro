@@ -1,0 +1,70 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import AlbumDetail from "../../components/AlbumDetail.astro";
+
+const albumData = {
+  title: "All Is Love And Pain In The Mouse Parade",
+  year: 2025,
+  coverPlaceholderUrl: "/images/about/gallery-4.webp",
+  coverAltText:
+    "Portada del álbum All Is Love And Pain In The Mouse Parade de Of Monsters and Men.",
+  reviewText: `"'Ordinary Creature' trata sobre el anhelo de esa persona que te da consuelo. Habla de cuando empiezas a sentirte mejor después de un periodo en el que no te sentías tan bien. Ese momento en el que vuelves a ser tú mismo y recuerdas lo que es ser una criatura ordinaria", explica la banda.`,
+  tracklist: [
+    "Television Love",
+    "Dream Team",
+    "The Actor",
+    "Tuna in a Can",
+    "Barefoot in Snow",
+    "Fruit Bat",
+    "Kamikaze",
+    "The Towering Skyscraper at the End of the Road",
+    "Ordinary Creature",
+    "Styrofoam Cathedral",
+    "The Block",
+    "Mouse Parade",
+    "The End",
+  ],
+  featuredTrack: "Ordinary Creature",
+  videoPlaceholderUrl:
+    "https://www.youtube.com/embed/QU6Uq5ZLuNQ?si=y7uSXokc0z_pY23j",
+  videoAltText: "Miniatura del videoclip Little Talks 2021 Version.",
+  totalLength: "53:00",
+  urlSongs: [
+    "https://music.youtube.com/watch?v=TJKxdPzoeEs&si=4VOuoVpy9-thivQD",
+    "https://music.youtube.com/watch?v=HNGCDYKNxmw&si=-XZZupvj84jGggc2",
+    "https://music.youtube.com/watch?v=Vm7mX0rb0Js&si=pjEihvKt8YgWpX7s",
+    "https://music.youtube.com/watch?v=K5iKS-lb3_w&si=cA6qdQ1qUm9I5UWk",
+    "https://music.youtube.com/watch?v=WPFBrZ3WrKk&si=7vXOR0zZuAr_16vQ",
+    "https://music.youtube.com/watch?v=zb3d-7aOmBU&si=lIu4yNKwnORIfkhY",
+    "https://music.youtube.com/watch?v=IXN-FH8i3Ms&si=AAIWJyp4TerLKpU2",
+    "https://music.youtube.com/watch?v=XjKr_2t9x6s&si=Q4BYMmVL1Dnt_I0V",
+    "https://music.youtube.com/watch?v=QU6Uq5ZLuNQ&si=OSdRwBNQPSmMFRod",
+    "https://music.youtube.com/watch?v=apJbIMC8HlI&si=5JJ_hnK0yuz5jKty",
+    "https://music.youtube.com/watch?v=T4hHQA4lfuE&si=-ZOnk2ggGaM82fvn",
+    "https://music.youtube.com/watch?v=v-A4eEhSfI4&si=0s2jOj1wDmxrKXPH",
+    "https://music.youtube.com/watch?v=L6Weyo7PU0A&si=ii8LOhtDWoSRMQd3",
+  ],
+  bannerUrl: "/images/banners/banner-all.webp",
+};
+---
+
+<Layout>
+  <Header />
+  <AlbumDetail
+    title={albumData.title}
+    year={albumData.year}
+    coverPlaceholderUrl={albumData.coverPlaceholderUrl}
+    coverAltText={albumData.coverAltText}
+    reviewText={albumData.reviewText}
+    tracklist={albumData.tracklist}
+    featuredTrack={albumData.featuredTrack}
+    videoPlaceholderUrl={albumData.videoPlaceholderUrl}
+    videoAltText={albumData.videoAltText}
+    totalLength={albumData.totalLength}
+    urlSongs={albumData.urlSongs}
+    bannerUrl={albumData.bannerUrl}
+  />
+  <Footer />
+</Layout>

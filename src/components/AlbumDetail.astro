@@ -1,0 +1,192 @@
+---
+export interface Props {
+  title: string;
+  year: number;
+  coverPlaceholderUrl: string;
+  coverAltText: string;
+  reviewText: string;
+  tracklist: string[];
+  featuredTrack: string;
+  videoPlaceholderUrl: string;
+  videoAltText: string;
+  totalLength: string;
+  urlSongs: string[];
+  bannerUrl: string;
+}
+
+const {
+  title,
+  year,
+  coverPlaceholderUrl,
+  coverAltText,
+  reviewText,
+  tracklist,
+  featuredTrack,
+  videoPlaceholderUrl,
+  videoAltText,
+  totalLength,
+  urlSongs,
+  bannerUrl,
+} = Astro.props;
+---
+
+<!-- Album Hero Section -->
+<section
+  class="relative py-16 overflow-hidden text-white"
+  style={`background-image: url('${bannerUrl}'); background-size: cover; background-position: center;`}
+>
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-gray-800 opacity-40"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h1
+        class="text-5xl md:text-7xl font-bold font-serif mb-4 drop-shadow-2xl"
+      >
+        {title}
+      </h1>
+      <div class="w-24 h-1 bg-white mx-auto rounded-full"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Album Details -->
+<section class="py-16 bg-stone-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <!-- Album Cover -->
+      <div class="lg:sticky lg:top-8 w-fit">
+        <div
+          class="bg-white p-8 rounded-2xl shadow-2xl border border-stone-200"
+        >
+          <img
+            src={coverPlaceholderUrl}
+            alt={coverAltText}
+            class="w-full max-w-md mx-auto rounded-lg shadow-lg"
+          />
+          <div class="mt-6 text-center">
+            <div class="grid grid-cols-3 gap-4 text-sm text-stone-600">
+              <div>
+                <div class="font-semibold text-stone-800">{year}</div>
+                <div>Año</div>
+              </div>
+              <div>
+                <div class="font-semibold text-stone-800">Record Records</div>
+                <div>Sello</div>
+              </div>
+              <div>
+                <div class="font-semibold text-stone-800">{totalLength}</div>
+                <div>Duración</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Album Content -->
+      <div class="space-y-12">
+        <!-- Description -->
+        <div>
+          <h2 class="text-3xl font-bold text-stone-800 mb-6 font-serif">
+            La Historia
+          </h2>
+          <p class="text-lg text-stone-600 leading-relaxed">
+            {reviewText}
+          </p>
+        </div>
+
+        <!-- Tracklist -->
+        <div>
+          <h2 class="text-3xl font-bold text-stone-800 mb-6 font-serif">
+            El Cuento Completo
+          </h2>
+          <div
+            class="bg-white rounded-xl shadow-lg border border-stone-200 overflow-hidden"
+          >
+            <ol class="divide-y divide-stone-200">
+              {
+                tracklist.map((track, index) => (
+                  <li
+                    class={`p-6 flex items-center justify-between ${track === featuredTrack ? "bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500" : "hover:bg-stone-50"} transition-colors duration-200`}
+                  >
+                    <div class="flex items-center space-x-4">
+                      <span
+                        class={`text-2xl font-bold ${track === featuredTrack ? "text-blue-600" : "text-stone-400"}`}
+                      >
+                        {(index + 1).toString().padStart(2, "0")}
+                      </span>
+                      <div>
+                        <h3
+                          class={`font-semibold ${track === featuredTrack ? "text-stone-800 text-lg" : "text-stone-700"}`}
+                        >
+                          {track}
+                          {track === featuredTrack && (
+                            <span class="ml-2 text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full font-medium">
+                              Sencillo Principal
+                            </span>
+                          )}
+                        </h3>
+                      </div>
+                    </div>
+                    <a
+                      href={urlSongs[index]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-red-600 hover:text-red-700 font-medium text-sm transition-colors duration-200 flex items-center space-x-1"
+                    >
+                      <svg
+                        class="w-4 h-4"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                      </svg>
+                      <span>Escuchar</span>
+                    </a>
+                  </li>
+                ))
+              }
+            </ol>
+          </div>
+        </div>
+
+        <!-- Featured Video -->
+        <div>
+          <h2 class="text-3xl font-bold text-stone-800 mb-6 font-serif">
+            Videoclip Destacado
+          </h2>
+          <div
+            class="bg-white rounded-xl shadow-lg border border-stone-200 overflow-hidden max-w-120"
+          >
+            <iframe
+              class="max-w-120 max-h-80"
+              width="100%"
+              height="315"
+              src={videoPlaceholderUrl}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function playVideo(videoId: string, container: HTMLElement) {
+    container.innerHTML = `
+      <iframe
+        width="100%"
+        height="100%"
+        src="https://www.youtube.com/embed/${videoId}?autoplay=1"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    `;
+  }
+</script>
