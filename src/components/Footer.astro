@@ -1,0 +1,120 @@
+---
+const socialLinks = [
+  {
+    name: "Facebook",
+    url: "https://facebook.com/ofmonstersandmen",
+    icon: "facebook",
+  },
+  {
+    name: "Instagram",
+    url: "https://instagram.com/ofmonstersandmen",
+    icon: "instagram",
+  },
+  {
+    name: "YouTube",
+    url: "https://youtube.com/ofmonstersandmen",
+    icon: "youtube",
+  },
+];
+---
+
+<footer class="bg-stone-800 text-stone-300 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Brand -->
+      <div class="col-span-1 md:col-span-2">
+        <h3 class="text-2xl font-bold text-white mb-4">Of Monsters and Men</h3>
+        <p class="text-stone-400 leading-relaxed mb-6 max-w-md">
+          Una banda islandesa que fusiona el folclore nórdico con sonidos
+          contemporáneos, creando música que transporta a paisajes etéreos y
+          bosques ancestrales.
+        </p>
+        <div class="flex space-x-4">
+          {
+            socialLinks.map((link) => (
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-stone-400 hover:text-white transition-colors duration-200"
+                aria-label={link.name}
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  {link.icon === "facebook" && (
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  )}
+                  {link.icon === "instagram" && (
+                    <path d="M12.017 0C8.396 0 7.996.014 6.79.067 5.583.12 4.775.302 4.082.559c-.726.275-1.34.64-1.95 1.25-.61.61-.975 1.224-1.25 1.95C.802 4.775.62 5.583.567 6.79.514 7.996.5 8.396.5 12.017s.014 4.021.067 5.227c.053 1.207.235 2.015.492 2.708.275.726.64 1.34 1.25 1.95.61.61 1.224.975 1.95 1.25.693.257 1.501.439 2.708.492 1.206.053 1.606.067 5.227.067s4.021-.014 5.227-.067c1.207-.053 2.015-.235 2.708-.492.726-.275 1.34-.64 1.95-1.25.61-.61.975-1.224 1.25-1.95.257-.693.439-1.501.492-2.708.053-1.206.067-1.606.067-5.227s-.014-4.021-.067-5.227c-.053-1.207-.235-2.015-.492-2.708-.275-.726-.64-1.34-1.25-1.95-.61-.61-1.224-.975-1.95-1.25C19.225.302 18.417.12 17.21.067 16.004.014 15.604 0 12.017 0zm0 1.802c3.538 0 3.958.013 5.357.066 1.37.052 2.115.29 2.625.483.652.247 1.118.542 1.607.978.489.436.784.902.978 1.607.193.51.431 1.255.483 2.625.053 1.399.066 1.819.066 5.357s-.013 3.958-.066 5.357c-.052 1.37-.29 2.115-.483 2.625-.247.652-.542 1.118-.978 1.607-.436.489-.902.784-1.607.978-.51.193-1.255.431-2.625.483-1.399.053-1.819.066-5.357.066s-3.958-.013-5.357-.066c-1.37-.052-2.115-.29-2.625-.483-.652-.247-1.118-.542-1.607-.978-.489-.436-.784-.902-.978-1.607-.193-.51-.431-1.255-.483-2.625-.053-1.399-.066-1.819-.066-5.357s.013-3.958.066-5.357c.052-1.37.29-2.115.483-2.625.247-.652.542-1.118.978-1.607.436-.489.902-.784 1.607-.978.51-.193 1.255-.431 2.625-.483 1.399-.053 1.819-.066 5.357-.066zm0 2.718c-3.623 0-6.535 2.912-6.535 6.535s2.912 6.535 6.535 6.535 6.535-2.912 6.535-6.535-2.912-6.535-6.535-6.535zm0 10.788c-2.94 0-5.323-2.383-5.323-5.323s2.383-5.323 5.323-5.323 5.323 2.383 5.323 5.323-2.383 5.323-5.323 5.323zm8.334-11.304c0 .836-.676 1.512-1.512 1.512s-1.512-.676-1.512-1.512.676-1.512 1.512-1.512 1.512.676 1.512 1.512z" />
+                  )}
+                  {link.icon === "youtube" && (
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  )}
+                </svg>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h4 class="text-lg font-semibold text-white mb-4">Enlaces</h4>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="/biografia"
+              class="text-stone-400 hover:text-white transition-colors duration-200"
+              >Biografía</a>
+          </li>
+          <li>
+            <a
+              href="/discografia"
+              class="text-stone-400 hover:text-white transition-colors duration-200"
+              >Discografía</a>
+          </li>
+          <li>
+            <a
+              href="/giras"
+              class="text-stone-400 hover:text-white transition-colors duration-200"
+              >Giras</a>
+          </li>
+          <li>
+            <a
+              href="/multimedia"
+              class="text-stone-400 hover:text-white transition-colors duration-200"
+              >Multimedia</a>
+          </li>
+          <li>
+            <a
+              href="/contacto"
+              class="text-stone-400 hover:text-white transition-colors duration-200"
+              >Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div
+      class="border-t border-stone-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+    >
+      <p class="text-stone-400 text-sm">
+        © 2023 Of Monsters and Men Fan Site. Todos los derechos reservados.
+      </p>
+      <div class="flex space-x-6 mt-4 md:mt-0">
+        <a
+          href="/terminos"
+          class="text-stone-400 hover:text-white text-sm transition-colors duration-200"
+        >
+          Términos y Condiciones
+        </a>
+        <a
+          href="/privacidad"
+          class="text-stone-400 hover:text-white text-sm transition-colors duration-200"
+        >
+          Política de Privacidad
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

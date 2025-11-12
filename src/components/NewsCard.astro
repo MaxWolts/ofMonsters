@@ -1,0 +1,31 @@
+---
+export interface Props {
+  image: string;
+  title: string;
+  description: string;
+  date?: string;
+}
+
+const { image, title, description, date } = Astro.props;
+---
+
+<div class="card group">
+  <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+    <img
+      src={image}
+      alt={title}
+      class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+    />
+  </div>
+  <div class="p-6">
+    {date && <p class="text-sm text-stone-500 mb-2">{date}</p>}
+    <h3
+      class="text-xl font-semibold text-stone-800 mb-3 group-hover:text-stone-600 transition-colors"
+    >
+      {title}
+    </h3>
+    <p class="text-stone-600 leading-relaxed">
+      {description}
+    </p>
+  </div>
+</div>

@@ -1,11 +1,84 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Carousel from "../components/Carousel.astro";
+import NewsCard from "../components/NewsCard.astro";
+import Footer from "../components/Footer.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const newsItems = [
+  {
+    image: "/images/news-1.svg",
+    title: "Nueva Gira Anunciada",
+    description:
+      "Of Monsters and Men anuncia su gira europea para 2024. Fechas disponibles próximamente.",
+    date: "15 Nov 2023",
+  },
+  {
+    image: "/images/news-2.svg",
+    title: "Videoclip Recién Estrenado",
+    description:
+      "Descubre el nuevo videoclip de 'Wars' filmado en los paisajes islandeses.",
+    date: "8 Nov 2023",
+  },
+  {
+    image: "/images/news-3.svg",
+    title: "Nuevo Álbum Próximamente",
+    description:
+      "Trabajando en nuevas canciones inspiradas en la naturaleza y el folclore nórdico.",
+    date: "1 Nov 2023",
+  },
+];
 ---
 
 <Layout>
-	<Welcome />
+  <Header />
+
+  <!-- Hero Carousel -->
+  <Carousel />
+
+  <!-- News Section -->
+  <section class="py-16 bg-stone-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold text-stone-800 mb-4">
+          El Bosque de Noticias
+        </h2>
+        <p class="text-xl text-stone-600 max-w-2xl mx-auto">
+          Mantente al día con las últimas novedades, lanzamientos y eventos de
+          Of Monsters and Men
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          newsItems.map((item) => (
+            <NewsCard
+              image={item.image}
+              title={item.title}
+              description={item.description}
+              date={item.date}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="py-16 bg-stone-800 text-stone-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        Descubre Nuestra Música
+      </h2>
+      <p class="text-xl mb-8 text-stone-300">
+        Explora nuestra discografía completa y sumérgete en el mundo sonoro de
+        Of Monsters and Men
+      </p>
+      <a href="/discografia" class="btn-primary inline-block">
+        Explorar Discografía
+      </a>
+    </div>
+  </section>
+
+  <Footer />
 </Layout>
