@@ -9,14 +9,14 @@ const navItems = [
 ];
 ---
 
-<header class="bg-white shadow-sm sticky top-0 z-50">
+<header class="bg-white shadow-sm fixed top-0 z-[100] w-full">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center py-4">
       <!-- Logo -->
       <div class="flex-shrink-0">
         <a
           href="/"
-          class="text-2xl font-bold text-stone-800 hover:text-stone-600 transition-colors"
+          class="text-2x md:text-2xl font-bold text-stone-800 hover:text-stone-600 transition-colors"
         >
           Of Monsters and Men
         </a>
@@ -37,25 +37,39 @@ const navItems = [
       <div class="md:hidden">
         <button
           id="mobile-menu-button"
-          class="text-stone-600 hover:text-stone-900 focus:outline-none focus:text-stone-900"
+          class="bg-stone-800 hover:bg-stone-700 text-white p-3 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2 shadow-lg"
           aria-label="Toggle menu"
         >
-          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+          <svg
+            class="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
             <path
-              fill-rule="evenodd"
-              d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-            ></path>
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
       </div>
     </div>
 
     <!-- Mobile Navigation -->
-    <div id="mobile-menu" class="hidden md:hidden pb-4">
-      <nav class="flex flex-col space-y-2">
+    <div
+      id="mobile-menu"
+      class="hidden md:hidden overflow-hidden transition-all duration-300 ease-in-out"
+    >
+      <nav
+        class="flex flex-col space-y-1 pt-2 pb-4 border-t border-stone-200 mt-4"
+      >
         {
           navItems.map((item) => (
-            <a href={item.href} class="nav-link py-2 border-b border-stone-200">
+            <a
+              href={item.href}
+              class="nav-link py-3 px-4 rounded-lg hover:bg-stone-50 transition-colors duration-200 text-stone-700 hover:text-stone-900 font-medium"
+            >
               {item.name}
             </a>
           ))
@@ -66,13 +80,30 @@ const navItems = [
 </header>
 
 <script>
-  // Simple mobile menu toggle
+  // Enhanced mobile menu toggle with smooth animations
   const button = document.getElementById("mobile-menu-button");
   const menu = document.getElementById("mobile-menu");
 
   if (button && menu) {
     button.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
+      const isHidden = menu.classList.contains("hidden");
+
+      if (isHidden) {
+        // Show menu
+        menu.classList.remove("hidden");
+        menu.style.maxHeight = "0px";
+        // Force reflow
+        menu.offsetHeight;
+        menu.style.maxHeight = menu.scrollHeight + "px";
+      } else {
+        // Hide menu
+        menu.style.maxHeight = "0px";
+        menu.addEventListener("transitionend", function hideMenu() {
+          menu.classList.add("hidden");
+          menu.style.maxHeight = "";
+          menu.removeEventListener("transitionend", hideMenu);
+        });
+      }
     });
   }
 </script>
