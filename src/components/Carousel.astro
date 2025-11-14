@@ -100,7 +100,7 @@ const slides = [
     {
       slides.map((_, index) => (
         <button
-          class={`carousel-indicator w-4 h-4 md:w-5 md:h-5 rounded-full transition-all duration-300 hover:scale-125 shadow-lg ${index === 0 ? "bg-white shadow-xl" : "bg-white bg-opacity-40 hover:bg-opacity-70"}`}
+          class={`carousel-indicator w-4 h-4 md:w-5 md:h-5 rounded-full transition-all duration-300 hover:scale-125 shadow-lg ${index === 0 ? "bg-[#cbb92e] shadow-xl" : "bg-white bg-opacity-40 hover:bg-opacity-70"}`}
           data-slide={index}
           aria-label={`Go to slide ${index + 1}`}
         />
@@ -122,7 +122,8 @@ const slides = [
     });
 
     indicators.forEach((indicator, i) => {
-      indicator.classList.toggle("bg-white", i === index);
+      indicator.classList.toggle("bg-[#cbb92e]", i === index);
+      indicator.classList.toggle("bg-white", i !== index);
       indicator.classList.toggle("bg-opacity-50", i !== index);
     });
 
