@@ -1,0 +1,14 @@
+# Disable Jekyll processing as this is an Astro site
+plugins: []
+exclude:
+  [
+    "dist/",
+    "node_modules/",
+    "src/",
+    "astro.config.mjs",
+    "tsconfig.json",
+    "package.json",
+    "package-lock.json",
+    ".github/",
+    "*.md",
+  ]
